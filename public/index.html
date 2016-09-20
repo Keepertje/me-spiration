@@ -1,0 +1,56 @@
+<html ng-app="routespiration">
+<meta name="viewport" content="width=device-width">
+<base href="/">
+
+<head>
+  <title>Routespiration</title>
+  <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Calligraffitti" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="./css/mystyle.css">
+  <link rel='shortcut icon' type='image/x-icon' href='/favicon.ico' />
+</head>
+
+<!-- searchbox in google maps -->
+<script id="searchbox.tpl.html" type="text/ng-template">
+      <input type="text" placeholder="Search">
+    </script>
+
+<script src="https://use.fontawesome.com/5b93db3687.js"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBqyhQ0TROVIpSJa5frkECBrbCAuqbXOrA&libraries=geometry,places,visualization"></script>
+
+<script src="./bower_components/angular/angular.min.js"></script>
+<script src="./bower_components/angular-route/angular-route.min.js"></script>
+<script src='./bower_components/lodash/lodash.js'></script>
+<script src='./bower_components/ngstorage/ngStorage.min.js'></script>
+<script src='./bower_components/angular-simple-logger/dist/angular-simple-logger.min.js'></script>
+<script src='./bower_components/angular-google-maps/dist/angular-google-maps.min.js'></script>
+<script src='./js/angular-router/router/angular1/angular_1_router.js'></script>
+<script src='./js/angular-router/router/angular1/ng_route_shim.js'></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/es6-shim/0.33.3/es6-shim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/systemjs/0.19.20/system-polyfills.js"></script>
+<script src="https://npmcdn.com/angular2/es6/dev/src/testing/shims_for_IE.js"></script>
+
+<script src="./js/module.js"></script>
+
+<!-- services -->
+<script src="./js/services/login.service.js"></script>
+<script src="./js/services/user.service.js"></script>
+<script src="./js/services/activities.service.js"></script>
+
+<!-- components -->
+
+<script src="./js/components/start.js"></script>
+<script src='./js/components/map.js'></script>
+<script src="./js/components/activities.js"></script>
+<script src="./js/components/login.js"></script>
+<script src="./js/config.js"></script>
+
+
+
+<body>
+
+  <app></app>
+
+</body>
+
+</html>

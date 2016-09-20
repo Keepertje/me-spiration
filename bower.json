@@ -1,0 +1,24 @@
+{
+  "name": "routespiration",
+  "description": "Code for the mespiration project, strava",
+  "main": "backend/app.js",
+  "authors": [
+    "Cindy Berghuizen"
+  ],
+  "license": "ISC",
+  "homepage": "me-spiration.herokuapp.com",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "public/bower_components/",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "^1.5.8",
+    "angular-route": "^1.5.8",
+    "angular-google-maps": "^2.3.4",
+    "ngstorage": "^0.3.11"
+  }
+}
