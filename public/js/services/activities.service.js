@@ -30,7 +30,8 @@ angular.module('routespiration')
                             path: decodedPolyLine,
                             stroke: {
                                 color: '#AA0000',
-                                weight: 3
+                                weight: 3,
+                                opacity:0.3
                             }
                         }
                 })

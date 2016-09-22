@@ -24,7 +24,7 @@ function StartComponent($window, userService, $sessionStorage, $rootRouter) {
     userService.logout();
   }
   $ctrl.login = function () {
-    $window.location.href = "https://www.strava.com/oauth/authorize?client_id=13016+&response_type=code&redirect_uri=https://me-spiration.herokuapp.com/callback";
+    $window.location.href = "https://www.strava.com/oauth/authorize?client_id=13016+&response_type=code&redirect_uri=http://me.routespiration.com/callback";
 
   }
 }

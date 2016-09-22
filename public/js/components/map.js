@@ -114,7 +114,7 @@ function MockHeatLayer(heatLayer) {
 
                 }, function(failure) {
                 if(failure.message.indexOf("Only secure origins are allowed") == 0) {
-                     console.log('Geolocation (GPS) is not supported by Chrome version 50+ over http, you can try https://routespiration.herokuapp.com instead');
+                     console.log('Geolocation (GPS) is not supported by Chrome version 50+ over http, you can try https://me-spiration.herokuapp.com instead');
                      $ctrl.map.center = $ctrl.defaultCenter
                   }
                  })
