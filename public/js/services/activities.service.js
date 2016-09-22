@@ -7,7 +7,6 @@ angular.module('routespiration')
 
         getActivitiesFromStrava = function() {
             var getData = $http.get(url + '' + userService.getToken()).then(function(response) {
-                console.log((response.data.length))
                 activities = (response.data)
                     .filter(function(element) {
 
@@ -31,7 +30,7 @@ angular.module('routespiration')
                             stroke: {
                                 color: '#AA0000',
                                 weight: 3,
-                                opacity:0.3
+                                opacity:0.4
                             }
                         }
                 })

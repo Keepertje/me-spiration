@@ -64,22 +64,6 @@ function MapComponent(uiGmapGoogleMapApi, $scope) {
 
     };
 
-function MockHeatLayer(heatLayer) {
-    // Not working yet
-    var map, heatmap;
-    var pointarray=[];
-    
-    $ctrl.activities.forEach(function(element){
-       
-        element.mapStuff.path.forEach(function(point){
-            pointarray.push({location: new google.maps.LatLng(point.lat(), point.lng()), weight:5})
-        })
-       
-    } );
-
-   // var pointArray = new google.maps.MVCArray(taxiData);
-    heatLayer.setData(pointarray);
-    };
 
     function setNewCoordinates(lat, long) {
 

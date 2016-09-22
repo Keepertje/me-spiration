@@ -13,12 +13,13 @@
   "dependencies": {
     "@angular/router": "^0.2.0",
     "angular": "^1.5.8",
+    "async": "^2.0.1",
     "bower": "^1.7.9",
     "express": "4.13.3",
     "request": "^2.74.0"
   },
   "engines": {
-        "node": "6.3.0",
-        "npm": "3.10.3"
-    }
+    "node": "6.3.0",
+    "npm": "3.10.3"
+  }
 }
