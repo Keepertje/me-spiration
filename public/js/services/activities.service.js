@@ -30,7 +30,7 @@ angular.module('routespiration')
                             stroke: {
                                 color: '#AA0000',
                                 weight: 3,
-                                opacity:0.4
+                                opacity:0.6
                             }
                         }
                 })
