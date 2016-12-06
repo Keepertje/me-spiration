@@ -12,8 +12,8 @@ app.get('/:code', function(req,res){
             , method: 'POST'
             , json: true
             ,form : {
-                client_id : 13016 ,
-                client_secret : "14f5aa150f954deec9a61fbc61b123552f5b18a2" ,
+                client_id : 0000 ,
+                client_secret : "SECRET" ,
                 code : mycode
             }
         };
