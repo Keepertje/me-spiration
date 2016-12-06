@@ -4,6 +4,16 @@ body{
 }
 
 
+input[type=text] {
+    width: 20%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
 button {
     display: inline-block;
   height:31px;
@@ -66,7 +76,7 @@ section div.right{
   width:40%;
 }
 
-.angular-google-map-container { height: 90vh; width:80vw;}
+.angular-google-map-container { margin:0 auto; height: 90vh; width:80vw;}
 
 
 

@@ -1,6 +1,11 @@
 angular.module('routespiration')
-    .factory('userService',function($http, $sessionStorage,$rootRouter){
+    .factory('userService',function($http, $sessionStorage, $rootRouter){
 
+
+    logout = function() {
+        $sessionStorage.$reset();
+         $rootRouter.navigate(['Start']);
+    }
 
     setUser = function(userInput){
         $sessionStorage.user = userInput;
@@ -23,6 +28,7 @@ angular.module('routespiration')
         return $sessionStorage.userToken;
     }
     return {
+      logout:logout,
       getUser:getUser,
       getToken:getToken,
       setUser:setUser,

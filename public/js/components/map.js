@@ -28,11 +28,11 @@ angular.module('map', [])
 function MapComponent(uiGmapGoogleMapApi, $scope) {
     var $ctrl = this;
     $ctrl.defaultCenter = { latitude: 52.087492, longitude: 5.123289 };
-   
+
     $ctrl.map = {
         //dummy center
         center: $ctrl.defaultCenter,
-     
+
         zoom: 9,
         /*heatLayerCallback: function (layer) {
                 //set the heat layers backend data
@@ -62,6 +62,14 @@ function MapComponent(uiGmapGoogleMapApi, $scope) {
 
     };
 
+    function findPoly(param) {
+        var poly = ($ctrl.activities).filter(function (element) {
+            return element.polyline === param;
+        });
+        return $ctrl.selectedPolyline = poly[0];
+
+    }
+
 
     function setNewCoordinates(lat, long) {
 
@@ -77,6 +85,29 @@ function MapComponent(uiGmapGoogleMapApi, $scope) {
         polylineActivities = [];
         $ctrl.activities.forEach(function (element) {
             if (element.mapStuff) {
+                element.mapStuff.events = {
+                    click: function (poly, eventName, model, arguments) {
+
+                        var theActivity = findPoly(model.path);
+                        var url = "https://www.strava.com/activities/" + theActivity.id;
+                        var win = window.open(url, '_blank');
+                        win.focus();
+
+
+                    }
+                    , mouseover: function (poly, evt, model, args) {
+                        var theActivity = findPoly(model.path);
+
+                        theActivity.hover = true;
+                        model.stroke.weight = 6;
+
+                    }
+                    , mouseout: function (poly, evt, model, args) {
+                        var theActivity = findPoly(model.path);
+                        theActivity.hover = false;
+                        model.stroke.weight = 3;
+                    }
+                }
                 polylineActivities.push(element.mapStuff);
             }
         })
@@ -107,7 +138,7 @@ function MapComponent(uiGmapGoogleMapApi, $scope) {
         }
     });
 
-   var styleArray = [
+    var styleArray = [
         {
             "featureType": "all",
             "elementType": "labels",
@@ -362,6 +393,6 @@ function MapComponent(uiGmapGoogleMapApi, $scope) {
         }
     ];
 
-    $ctrl.map.options ={styles:styleArray}
+    $ctrl.map.options = { styles: styleArray }
 
 }
