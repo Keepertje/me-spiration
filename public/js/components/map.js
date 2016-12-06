@@ -1,10 +1,8 @@
 angular.module('map', [])
     .component('map', {
         template:
-        "<ui-gmap-google-map center='$ctrl.map.center' zoom='$ctrl.map.zoom' events='$ctrl.map.events' options='$ctrl.map.options'>" +
-        //heatmaplayer
-        //  '<ui-gmap-layer namespace="visualization" type="HeatmapLayer" show="$ctrl.map.showHeat" onCreated="$ctrl.map.heatLayerCallback"></ui-gmap-layer>' +
-
+        "<ui-gmap-google-map center='$ctrl.map.center' zoom='$ctrl.map.zoom' events='$ctrl.map.events'>" +
+        //options='$ctrl.map.options'
         ' <ui-gmap-search-box template="$ctrl.map.searchbox.template" events="$ctrl.map.searchbox.events"></ui-gmap-search-box>' +
 
         "<ui-gmap-polyline  ng-repeat='p in $ctrl.polylines' path='p.path'" +
