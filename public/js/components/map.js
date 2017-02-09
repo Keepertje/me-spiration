@@ -25,20 +25,22 @@ angular.module('map', [])
 
     })
 
-function MapComponent(uiGmapGoogleMapApi, $scope) {
+function MapComponent(uiGmapGoogleMapApi, $scope, $rootScope, activitiesService) {
     var $ctrl = this;
-    $ctrl.defaultCenter = { latitude: 52.087492, longitude: 5.123289 };
+    this.$onInit = function () {
 
+        setThePolylines(); //angular 1.6 now does not auto bind anymore
+    };
+
+    $ctrl.defaultCenter = { latitude: 52.087492, longitude: 5.123289 };
+    var polylineActivities = [];
+    var previousSelected = {};
     $ctrl.map = {
         //dummy center
         center: $ctrl.defaultCenter,
 
         zoom: 9,
-        /*heatLayerCallback: function (layer) {
-                //set the heat layers backend data
-                var mockHeatLayer = new MockHeatLayer(layer);
-                },
-            showHeat: true,*/
+
         events: {
             click: function (map, event, model) {
                 //this is super slow... Don not know why...
@@ -77,9 +79,6 @@ function MapComponent(uiGmapGoogleMapApi, $scope) {
         $ctrl.map.center = { latitude: lat, longitude: long }
     }
     //How to do this... must be loaded already, but user still needs to log in.
-    var polylineActivities = [];
-    var previousSelected = {};
-    setThePolylines();
 
     function setThePolylines() {
         polylineActivities = [];
@@ -88,10 +87,13 @@ function MapComponent(uiGmapGoogleMapApi, $scope) {
                 element.mapStuff.events = {
                     click: function (poly, eventName, model, arguments) {
 
-                        var theActivity = findPoly(model.path);
-                        var url = "https://www.strava.com/activities/" + theActivity.id;
-                        var win = window.open(url, '_blank');
-                        win.focus();
+                        var theActivity = findPoly(model.path);      
+
+                        $rootScope.$broadcast('activity', theActivity);
+          
+                       // var url = "https://www.strava.com/activities/" + theActivity.id;
+                       // var win = window.open(url, '_blank');
+                      //  win.focus();
 
 
                     }

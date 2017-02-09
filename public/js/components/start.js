@@ -1,20 +1,30 @@
-    angular.module('start', [])
-    .component('start', {
-        template:
-      '<div class="how">'+
-    '<section>'+
-    '<h1>Login with Strava.</h1>'+
-      '<p>Login with Strava to see a map of your activities</p>'+
-       '<p>Want to find new activities? Try out <a href="http://www.routespiration.com">RouteSpiration</a></p>'+
-    '</section>'+
-     '</div>',
+angular.module('start', [])
 
-        controller: StartComponent
-      
+  .component('start', {
+    template: "<div class='landingpage'> " +
+    "<div class='information'><h1>Me - Routespiration</h1>" +
+    "<p>View the activities of your past!</p>" +
+    "<p>To find other activities in your area please use <a href='http://www.routespiration.com' target='_blank'>Routespiration</a>!</p>" +
+    "<button class='button-primary' ng-click='$ctrl.login()'>Log in with Strava </button></div>" +
+    "</div>",
+    controller: StartComponent
+  })
 
-    })
+function StartComponent($window, userService, $localStorage, $rootRouter) {
+  var $ctrl = this;
+  // $ctrl.loggedIn = userService.isLoggedIn();
+  $ctrl.$storage = $localStorage;
 
-function StartComponent() {
+  if(userService.isLoggedIn()){
+ 
+     $rootRouter.navigate(['Activities']);
+  }
 
+  $ctrl.logout = function () {
+    userService.logout();
+  }
+  $ctrl.login = function () {
+    $window.location.href = "https://www.strava.com/oauth/authorize?client_id=13016+&response_type=code&redirect_uri=http://localhost:3000/callback";
 
   }
+}

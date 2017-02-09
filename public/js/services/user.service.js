@@ -1,38 +1,39 @@
 angular.module('routespiration')
-    .factory('userService',function($http, $sessionStorage, $rootRouter){
+    .factory('userService',function($http, $localStorage){
 
 
     logout = function() {
-        $sessionStorage.$reset();
-         $rootRouter.navigate(['Start']);
+        $localStorage.$reset();
+   
     }
-
     setUser = function(userInput){
-        $sessionStorage.user = userInput;
+        
+        $localStorage.user = userInput;
         
     }
 
     isLoggedIn = function(){
-        return($sessionStorage.user !== null);
+    
+        return($localStorage.user !== null && $localStorage.user !== undefined );
     }
 
     getUser = function(){
-        return $sessionStorage.user;
+        return $localStorage.user;
     }
 
     setToken = function(token){
-        $sessionStorage.userToken = token
+        $localStorage.userToken = token
       
     }
     getToken = function(){
-        return $sessionStorage.userToken;
+        return $localStorage.userToken;
     }
     return {
-      logout:logout,
       getUser:getUser,
       getToken:getToken,
       setUser:setUser,
       setToken:setToken,
-      isLoggedIn:isLoggedIn
+      isLoggedIn:isLoggedIn,
+      logout: logout
      };
 });
